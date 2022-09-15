@@ -1,0 +1,131 @@
+[
+  {
+    "id": "4",
+    "title": "Adly",
+    "details": [
+      "2020",
+      "Internship"
+    ],
+    "company": "HERE Technologies",
+    "description": "I got an assignment from HERE Technologies. During this assignment I collected locations of advertising spots in Eindhoven together with other students. We used the collection of advertising points to create an overview of all available advertising spots in Eindhoven. We made this overview by going through a design process which eventually led to the creation of the Android app 'Adly'",
+    "skills": [
+      "Java",
+      "Android",
+      "XML",
+      "Firebase",
+      "HERE Data Hub",
+      "HERE C&C tool",
+      "HERE SDK & API's"
+    ],
+    "thumbnail": "thumbnails/thumbnail-adly.png",
+    "videoId": "zNkLFiaqu9Q",
+    "demoVideoEnabled":true,
+    "links": {
+      "github": {
+        "enabled": true,
+        "link": "https://github.com/levicr1998/here-adly"
+      },
+      "live": {
+        "enabled": false,
+        "link": "www.test.nl"
+      }
+    }
+  },
+  {
+    "id": "3",
+    "title": "Human Flower website",
+    "details": [
+      "2020",
+      "Freelance"
+    ],
+    "company": "Human Flower",
+    "description": "This is a small informative website that is made for an individual dutch masseur. It's optimised for SEO.",
+    "skills": [
+      "HTML",
+      "SCSS",
+      "Javascript",
+      "Vue.js",
+      "SEO",
+      "Nuxt.js"
+    ],
+    "videoId": "",
+    "demoVideoEnabled":false,
+    "thumbnail":"thumbnails/thumbnail-humanflower.png",
+    "links": {
+      "github": {
+        "enabled": false,
+        "link": ""
+      },
+      "live": {
+        "enabled": true,
+        "link": "https://www.humanflower.nl"
+      }
+    }
+  },
+  {
+    "id": "2",
+    "title": "Social Shift Academy",
+    "details": [
+      "2020",
+      "Internship"
+    ],
+    "company": "Apostle",
+    "description": "Social Shift Academy is the e-learning module in the Apostle app. In this module the user has the possibility to earn badges by completing courses. A course consists of several learning objects (videos, podcasts, pdfs etc) and a final exam.",
+    "skills": [
+      "Vue.js",
+      "HTML",
+      "SCSS",
+      "Javascript",
+      "PHP",
+      "Capacitor",
+      "Symfony",
+      "SQL",
+      "Moodle"
+    ],
+    "videoId": "",
+    "demoVideoEnabled":false,
+    "thumbnail": "thumbnails/thumbnail-socialshiftacademy.png",
+    "links": {
+      "github": {
+        "enabled": false
+      },
+      "live": {
+        "enabled": false
+      }
+    }
+  },
+  {
+    "id": "1",
+    "title": "FeedMe",
+    "details": [
+      "2019",
+      "School project"
+    ],
+    "company": "Fontys",
+    "description": "FeedMe is an order webapp for restaurants with the possibility to order food in a tinder way. The app is made as an PWA to make it easy accessible on your phone.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "Javascript",
+      "Java",
+      "Angular",
+      "Springboot",
+      "CI/CD",
+      "PWA",
+      "SQL"
+    ],
+    "videoId": "tCaEbL5fZDI",
+    "demoVideoEnabled":true,
+    "thumbnail": "thumbnails/thumbnail-feedme.png",
+    "links": {
+      "github": {
+        "enabled": true,
+        "link": "https://github.com/levicr1998/feedme"
+      },
+      "live": {
+        "enabled": false,
+        "link": "www.test.nl"
+      }
+    }
+  }
+]
