@@ -1,12 +1,11 @@
-import Loader from "./components/Loader";
+import Loader from './components/Loader';
 
 function App() {
-
   return (
     <div>
-    <Loader />
+      <Loader />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
