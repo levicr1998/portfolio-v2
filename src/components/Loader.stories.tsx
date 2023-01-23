@@ -1,8 +1,8 @@
-import Loader from './Loader';
+import LoaderComponent from './Loader';
 
 export default {
-  component: Loader,
+  component: LoaderComponent,
   title: '1.Components/Loader'
 };
 
-export const Default = () => <Loader />;
+export const Loader = () => <LoaderComponent />;

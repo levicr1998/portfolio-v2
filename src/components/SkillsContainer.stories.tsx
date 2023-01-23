@@ -1,9 +1,13 @@
-import SkillsContainer from './SkillsContainer';
+import SkillsContainerComponent from './SkillsContainer';
 
 export default {
-  component: SkillsContainer,
+  component: SkillsContainerComponent,
   title: '1.Components/SkillsContainer'
 };
 
 const skills = ['Spring Boot', 'Java', 'REST', 'Kubernetes', 'Docker', 'Azure DevOps'];
-export const Default = () => <SkillsContainer skills={skills} />;
+export const SkillsContainer = () => (
+  <div className="w-full h-full bg-white p-4">
+    <SkillsContainerComponent title="Used technologies" skills={skills} />
+  </div>
+);

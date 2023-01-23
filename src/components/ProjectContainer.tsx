@@ -17,7 +17,9 @@ const ProjectContainer = ({ title, details, company, description, skills, image 
         <div className="flex flex-wrap">
           {details !== undefined &&
             details.map((detail, index) => (
-              <span key={index} className="bg-primary-blue flex items-center text-white rounded font-bold text-xs p-1.5 m-1">
+              <span
+                key={index}
+                className="bg-primary-blue flex items-center text-white rounded font-bold text-xs p-1.5 m-1">
                 {detail}
               </span>
             ))}

@@ -1,7 +1,7 @@
-import ProjectContainer from './ProjectContainer';
+import ProjectContainerComponent from './ProjectContainer';
 
 export default {
-  component: ProjectContainer,
+  component: ProjectContainerComponent,
   title: '1.Components/ProjectContainer'
 };
 
@@ -15,4 +15,8 @@ const project = {
   image: '../../back-up-assets/thumbnails/thumbnail-motivatio.png'
 };
 
-export const Default = () => <ProjectContainer {...project} />;
+export const ProjectContainer = () => (
+  <div className="bg-primary-blue h-full w-full p-20">
+    <ProjectContainerComponent {...project} />
+  </div>
+);
