@@ -20,11 +20,32 @@ export const Home = () => {
   const skillsContainerItems: SkillsContainerProps[] = [
     {
       title: 'Used languages',
-      skills: ['HTML', 'CSS/SCSS', 'Javascript', 'Java', 'PHP', 'C#', 'SQL', 'NoSQL', 'Dart']
+      skills: [
+        'HTML',
+        'CSS/SCSS',
+        'Javascript',
+        'Typescript',
+        'Java',
+        'PHP',
+        'C#',
+        'SQL',
+        'NoSQL',
+        'Dart'
+      ]
     },
     {
       title: 'Used frameworks',
-      skills: ['Springboot', 'Angular', 'Vue.js', 'Symfony', 'Capacitor', 'Flutter']
+      skills: [
+        'Springboot',
+        'Angular',
+        'Vue.js',
+        'Symfony',
+        'Capacitor',
+        'Flutter',
+        'React',
+        'React Native',
+        'Next.JS'
+      ]
     },
     {
       title: 'Used tools',
@@ -35,11 +56,12 @@ export const Home = () => {
         'Postman',
         'IntelliJ',
         'Visual Code',
-        'Azure DevOps',
-        'Trello',
-        'Windows Terminal',
         'Figma',
-        'Android Studio'
+        'Trello',
+        'JIRA',
+        'Windows Terminal',
+        'Android Studio',
+        'Azure DevOps',
       ]
     }
   ];
@@ -48,23 +70,23 @@ export const Home = () => {
     <>
       <div className="bg-primary-blue h-full">
         <Header />
-        <div className="grid grid-cols-6 grid-rows-3 container mx-auto h-screen justify-center">
+        <div className="grid grid-cols-6 md:grid-cols-8 grid-rows-3 container mx-auto h-screen justify-center">
           <TextTyper
-            className="col-start-2 col-span-2 row-start-1 row-span-2"
+            className="col-span-6 md:col-span-2 md:col-start-1 lg:col-start-2 md:row-span-2 mx-auto text-center"
             wordsToType={['Developer', 'Motivator', 'Teamplayer', 'Discoverer', 'Creator']}
           />
-          <div className="col-start-4 row-start-1 row-span-2 col-span-2 flex justify-center items-center">
+          <div className="flex justify-center items-center col-span-6 md:col-span-3 md:row-span-2 md:col-start-6 lg:col-start-5">
             <img
               src="../../assets/img/intro-image.png"
               alt="Levi Crietee"
-              className="rounded-full w-80 h-80"
+              className="rounded-full w-60 h-60 xs:w-64 xs:h-64 md:h-60 md:w-60 lg:w-80 lg:h-80"
             />
           </div>
         </div>
       </div>
-      <div className="bg-white">
-        <div className="grid grid-cols-7 grid-rows-4 container mx-auto h-screen justify-center">
-          <div className="col-start-2 col-span-2 row-start-2">
+      <div className="bg-white mb-20">
+        <div className="flex flex-col md:grid md:grid-cols-7 md:grid-rows-4 container mx-auto md:h-screen justify-center">
+          <div className="mx-5 mt-20 md:mx-0 md:my-0 col-start-2 col-span-5 md:col-start-1 md:col-span-3 md:row-start-2 lg:col-span-2 lg:col-start-2">
             <h3 className="text-3xl font-extrabold text-primary-blue mb-4">About me</h3>
             <p className="text-grey mb-4">
               Hi, my name is Levi Crietee. I’m a passionated ICT & Software Engineering student at
@@ -77,9 +99,9 @@ export const Home = () => {
               Download resume
             </button>
           </div>
-          <div className="col-start-5 col-span-2 row-start-2">
+          <div className="mx-5 my-10 md:my-0 md:mx-0 col-start-2 col-span-5 md:col-start-5 md:col-span-3 md:row-start-2 lg:col-start-5 lg:col-span-2">
             {skillsContainerItems?.map((props) => (
-              <SkillsContainer className='mt-4 first-of-type:mt-0' key={props.title} {...props} />
+              <SkillsContainer className="mt-4 first-of-type:mt-0" key={props.title} {...props} />
             ))}
           </div>
         </div>

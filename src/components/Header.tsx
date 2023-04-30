@@ -21,10 +21,10 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex items-center justify-between w-full p-6 container mx-auto">
+    <header className="flex items-center justify-between w-full p-6 mx-auto">
       <img
         alt="emoij levi"
-        className="w-20 h-20"
+        className="w-14 h-14 xs:w-20 xs:h-20"
         data-aos="fade-in"
         data-aos-duration="1000"
         src="../assets/img/emoij-levi.svg"
@@ -46,7 +46,7 @@ const Header = () => {
       <div
         className={classNames(
           showMenu ? 'translate-x-0' : 'translate-x-full',
-          'absolute bg-white w-full h-full top-0 left-0 ease-in-out duration-300 md:hidden'
+          'fixed bg-white w-full h-full top-0 left-0 ease-in-out duration-300 overflow-x-hidden md:hidden'
         )}>
         <div className="flex justify-end">
           <button onClick={() => setShowMenu(false)}>
