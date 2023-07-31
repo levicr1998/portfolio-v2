@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { classNames } from '../helpers/classHelper';
+import { classNames } from '../../helpers/classHelper';
 
 type Props = {
   wordsToType: string[];

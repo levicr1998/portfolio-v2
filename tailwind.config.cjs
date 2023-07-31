@@ -8,6 +8,15 @@ module.exports = {
       'xs': '475px',
       ...defaultTheme.screens,
     },
+    container: {
+      screens: {
+        xs: '100%',
+        sm: '540px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px'
+      }
+    },
     extend: {
 
       keyframes: {
