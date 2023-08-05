@@ -1,8 +1,10 @@
 import ProjectContainerComponent, { Props } from './ProjectContainer';
+import { ReactRouterDecorator } from '../../decorators/ReactoRouterDecorator';
 
 export default {
   component: ProjectContainerComponent,
-  title: '1.Components/ProjectContainer'
+  title: '1.Components/ProjectContainer',
+  decorators: [ReactRouterDecorator]
 };
 
 const project: Props = {

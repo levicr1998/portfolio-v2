@@ -1,7 +1,12 @@
 import YouTube from 'react-youtube';
+import { styles } from './styles';
 
-const VideoPlayer = () => {
-  return <YouTube videoId={'2g811Eo7K8U'} iframeClassName="w-full h-[20rem]" />;
+type Props = {
+  videoId: string;
+};
+
+const VideoPlayer = ({ videoId }: Props) => {
+  return <YouTube videoId={videoId} iframeClassName={styles.videoplayer} />;
 };
 
 export default VideoPlayer;

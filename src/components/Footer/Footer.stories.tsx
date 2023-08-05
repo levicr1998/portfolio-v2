@@ -1,4 +1,8 @@
 import FooterComponent from './Footer';
+import LinkedInIcon from '../icons/LinkedInIcon';
+import GithubIcon from '../icons/GithubIcon';
+import InstagramIcon from '../icons/InstagramIcon';
+import FacebookIcon from '../icons/FacebookIcon';
 
 export default {
   component: FooterComponent,
@@ -10,24 +14,20 @@ export const Footer = () => (
     <FooterComponent
       items={[
         {
-          src: '../assets/img/icons/linkedin-icon.svg',
-          alt: 'Linkedin Icon',
+          icon: LinkedInIcon,
           link: 'https://www.linkedin.com/in/levi-crietee-84ab74145/'
         },
         {
-          src: '../assets/img/icons/github-icon.svg',
-          alt: 'Github Icon',
+          icon: GithubIcon,
           link: 'https://github.com/levicr1998'
         },
         {
-          src: '../assets/img/icons/instagram-icon.svg',
-          alt: 'Instagram Icon',
+          icon: InstagramIcon,
           link: 'https://www.instagram.com/levicrietee/'
         },
 
         {
-          src: '../assets/img/icons/facebook-icon.svg',
-          alt: 'Facebook Icon',
+          icon: FacebookIcon,
           link: 'https://www.facebook.com/levi.crietee'
         }
       ]}></FooterComponent>

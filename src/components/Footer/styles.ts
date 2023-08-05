@@ -1,4 +1,40 @@
 export const styles = {
+  container: `
+        flex 
+        items-center 
+        flex-col 
+        w-full 
+        relative
+  `,
+  contactContainer: `
+        bg-white
+        w-1/2 
+        absolute 
+        -top-32 
+        flex 
+        flex-col 
+        p-12 
+        drop-shadow-2xl
+  `,
+  contactTitle: `
+        text-3xl 
+        font-extrabold 
+        text-primary-blue 
+        my-4
+  `,
+  contactSubtitle: `
+        my-4
+  `,
+  contactButton: `
+        border 
+        border-primary-blue 
+        text-primary-blue 
+        font-bold 
+        w-56 
+        py-2.5 
+        hover:bg-primary-blue 
+        hover:text-white
+  `,
   footer: `
         flex 
         items-center 
@@ -23,8 +59,7 @@ export const styles = {
     hover:scale-110
     `,
   img: `
-    w-8 
-    h-8
+    scale-[0.75]
     `,
   copyrightText: `   
     text-primary-blue 

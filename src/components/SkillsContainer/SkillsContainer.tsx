@@ -1,4 +1,5 @@
 import { classNames } from '../../helpers/classHelper';
+import { styles } from './styles';
 
 export type SkillsContainerProps = {
   title?: string;
@@ -10,13 +11,11 @@ type Props = SkillsContainerProps & {
 };
 
 const SkillsContainer = ({ title, skills, className }: Props) => (
-  <div className={classNames(className, 'flex flex-col')}>
-    {title && <h4 className="text-primary-blue text-2xl mb-4 font-extrabold">{title}</h4>}
-    <div className="flex flex-row flex-wrap">
+  <div className={classNames(className, styles.container)}>
+    {title && <h4 className={styles.title}>{title}</h4>}
+    <div className={styles.skillsContainer}>
       {skills?.map((skill, index) => (
-        <div
-          key={index}
-          className="flex justify-center items-center bg-white text-sm text-center text-primary-blue border border-primary-blue rounded-lg py-1 px-2 m-1">
+        <div key={index} className={styles.skill}>
           {skill}
         </div>
       ))}

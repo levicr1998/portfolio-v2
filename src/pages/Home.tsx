@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Loader from '../components/Loader/Loader';
 import Header from '../components/Header/Header';
 import TextTyper from '../components/TextTyper/TextTyper';
@@ -8,6 +8,10 @@ import SkillsContainer, {
 import { ContentfulContext } from '../context/ContentfulContext';
 import ProjectContainer from '../components/ProjectContainer/ProjectContainer';
 import Footer from '../components/Footer/Footer';
+import InstagramIcon from '../components/icons/InstagramIcon';
+import LinkedInIcon from '../components/icons/LinkedInIcon';
+import GithubIcon from '../components/icons/GithubIcon';
+import FacebookIcon from '../components/icons/FacebookIcon';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +27,6 @@ export const Home = () => {
       })
       .then((entries) => setProjects(entries?.items?.map((item) => item)));
   }, [client, setProjects]);
-  console.log(projects);
 
   useEffect(() => {
     setTimeout(() => {
@@ -170,24 +173,20 @@ export const Home = () => {
         <Footer
           items={[
             {
-              src: '../assets/img/icons/linkedin-icon.svg',
-              alt: 'Linkedin Icon',
+              icon: LinkedInIcon,
               link: 'https://www.linkedin.com/in/levi-crietee-84ab74145/'
             },
             {
-              src: '../assets/img/icons/github-icon.svg',
-              alt: 'Github Icon',
+              icon: GithubIcon,
               link: 'https://github.com/levicr1998'
             },
             {
-              src: '../assets/img/icons/instagram-icon.svg',
-              alt: 'Instagram Icon',
+              icon: InstagramIcon,
               link: 'https://www.instagram.com/levicrietee/'
             },
 
             {
-              src: '../assets/img/icons/facebook-icon.svg',
-              alt: 'Facebook Icon',
+              icon: FacebookIcon,
               link: 'https://www.facebook.com/levi.crietee'
             }
           ]}

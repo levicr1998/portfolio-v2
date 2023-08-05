@@ -11,6 +11,6 @@ export const styles = {
         h-full
     `,
   icon: `
-        w-20
+        scale-[1.3]
     `
 };

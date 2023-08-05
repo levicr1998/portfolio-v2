@@ -1,10 +1,11 @@
-import {styles} from "./styles";
+import { styles } from './styles';
+import SpinningCircles from '../icons/SpinningCircles';
 
 const Loader = () => (
   <div>
     <div className={styles.container}>
       <div className={styles.iconContainer}>
-        <img className={styles.icon} src="../../assets/img/icons/spinning-circles.svg" alt="Spinner icon" />
+        <SpinningCircles className={styles.icon} />
       </div>
     </div>
   </div>

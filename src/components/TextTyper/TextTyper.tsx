@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { classNames } from '../../helpers/classHelper';
+import { styles } from './styles';
 
 type Props = {
   wordsToType: string[];
@@ -75,21 +76,12 @@ const TextTyper = ({
   };
 
   return (
-    <h1
-      className={classNames(
-        className,
-        'text-white flex flex-col text-2xl xs:text-4xl lg:text-5xl xs:min-w-[20rem] justify-center'
-      )}>
+    <h1 className={classNames(className, styles.title)}>
       <span>Welcome,</span>
       <span>I'm Levi. </span>
       <span>
         I'm a <b>{typeValue}</b>
-        <span
-          className={classNames(
-            typeStatus ? '' : 'animate-cursorBlinkAnimation',
-            'inline-block w-0.5 ml-0.5 bg-white h-6 xs:h-8 align-middle'
-          )}
-        />
+        <span className={classNames(typeStatus ? '' : styles.typingAnimation, styles.typingIcon)} />
       </span>
     </h1>
   );
