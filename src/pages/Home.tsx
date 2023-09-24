@@ -8,10 +8,7 @@ import SkillsContainer, {
 import { ContentfulContext } from '../context/ContentfulContext';
 import ProjectContainer from '../components/ProjectContainer/ProjectContainer';
 import Footer from '../components/Footer/Footer';
-import InstagramIcon from '../components/icons/InstagramIcon';
-import LinkedInIcon from '../components/icons/LinkedInIcon';
-import GithubIcon from '../components/icons/GithubIcon';
-import FacebookIcon from '../components/icons/FacebookIcon';
+import { InstagramIcon, LinkedInIcon, GithubIcon, FacebookIcon} from '../components/icons'
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);

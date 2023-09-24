@@ -1,12 +1,9 @@
-import YouTube from 'react-youtube';
-import { styles } from './styles';
-
 type Props = {
-  videoId: string;
+  videoUrl: string;
 };
 
-const VideoPlayer = ({ videoId }: Props) => {
-  return <YouTube videoId={videoId} iframeClassName={styles.videoplayer} />;
+const VideoPlayer = ({ videoUrl }: Props) => {
+  return <video src={videoUrl} autoPlay controls />;
 };
 
 export default VideoPlayer;

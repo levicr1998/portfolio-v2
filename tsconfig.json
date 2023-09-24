@@ -19,6 +19,6 @@
       "@portfolio": ["./src"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "**/*.svg?react"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

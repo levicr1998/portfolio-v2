@@ -1,6 +1,6 @@
 export const styles = {
   videoplayer: `
         w-full 
-        h-screen
+        h-[500px]
     `
 };

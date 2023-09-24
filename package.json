@@ -11,18 +11,23 @@
     "build-storybook": "storybook build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "codegen": "eval $(grep '^VITE_CONTENTFUL_SPACE_ID' .env) && eval $(grep '^CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN' .env) && cf-content-types-generator --spaceId=$VITE_CONTENTFUL_SPACE_ID  --token=$CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN -o src/types"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "contentful": "^10.3.6",
+    "cf-content-types-generator": "^2.12.8",
+    "contentful": "^10.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
-    "react-youtube": "^10.1.0"
+    "react-youtube": "^10.1.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwind-safelist-generator": "^1.0.0",
+    "vite-plugin-svgr": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",

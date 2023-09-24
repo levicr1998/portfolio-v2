@@ -22,10 +22,7 @@ export const styles = {
         text-sm 
         text-center 
         text-primary-blue 
-        border 
-        hover:scale-[1.3]
-        hover:drop-shadow-xl
-        hover:duration-300
+        border
         border-primary-blue 
         rounded-lg 
         py-1 

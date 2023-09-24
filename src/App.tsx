@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import * as contentful from 'contentful';
 import { ContentfulContext } from './context/ContentfulContext';
 import { Project } from './pages/Project';
+import { projectLoader } from './helpers';
 
 function App() {
   const client = contentful.createClient({
@@ -19,10 +20,7 @@ function App() {
     {
       path: 'projects/:projectId',
       element: <Project />,
-      loader: async ({ params }) => {
-        const project = await client.getEntry(params?.projectId ?? '');
-        return project;
-      }
+      loader: projectLoader
     }
   ]);
 

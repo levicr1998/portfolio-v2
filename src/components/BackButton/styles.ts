@@ -1,9 +1,8 @@
 export const styles = {
   button: `
     bg-primary-blue 
-    w-24 
-    h-24 
-    scale-[0.55] 
+    w-12
+    h-12    
     flex 
     items-center 
     justify-center 

@@ -8,7 +8,8 @@ export const styles = {
   `,
   contactContainer: `
         bg-white
-        w-1/2 
+        w-[90%]
+        lg:w-1/2 
         absolute 
         -top-32 
         flex 
@@ -27,7 +28,6 @@ export const styles = {
   `,
   contactButton: `
         border 
-        border-primary-blue 
         text-primary-blue 
         font-bold 
         w-56 

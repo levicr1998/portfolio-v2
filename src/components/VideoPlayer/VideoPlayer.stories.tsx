@@ -7,6 +7,6 @@ export default {
 
 export const VideoPlayer = () => (
   <div className="w-full h-[40rem]">
-    <VideoPlayerComponent />
+    <VideoPlayerComponent videoUrl="https://thepaciellogroup.github.io/AT-browser-tests/video/ElephantsDream.mp4" />
   </div>
 );

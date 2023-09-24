@@ -1,5 +1,5 @@
 import ProjectContainerComponent, { Props } from './ProjectContainer';
-import { ReactRouterDecorator } from '../../decorators/ReactoRouterDecorator';
+import { ReactRouterDecorator } from '../../decorators/ReactRouterDecorator';
 
 export default {
   component: ProjectContainerComponent,

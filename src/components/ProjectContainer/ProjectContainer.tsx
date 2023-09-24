@@ -2,7 +2,7 @@ import SkillsContainer from '../SkillsContainer/SkillsContainer';
 import { classNames } from '../../helpers/classHelper';
 import { useNavigate } from 'react-router-dom';
 import { Entry } from 'contentful';
-import CompanyIcon from '../icons/CompanyIcon';
+import { CompanyIcon } from '../icons';
 import { styles } from './styles';
 
 export type Props = {
@@ -45,7 +45,7 @@ const ProjectContainer = ({
           </div>
         </div>
         <div className={styles.companyContainer}>
-          <CompanyIcon />
+          <CompanyIcon className="w-8 h-8 stroke-2 stroke-primary-blue" />
           <span className={styles.companyTitle}>{company}</span>
         </div>
         <p className={styles.description}>{description}</p>

@@ -1,5 +1,5 @@
 import BackButtonComponent from './BackButton';
-import { ReactRouterDecorator } from '../../decorators/ReactoRouterDecorator';
+import { ReactRouterDecorator } from '../../decorators/ReactRouterDecorator';
 
 export default {
   component: BackButtonComponent,
