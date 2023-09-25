@@ -1,8 +1,5 @@
 import FooterComponent from './Footer';
-import LinkedInIcon from '../icons/LinkedInIcon';
-import GithubIcon from '../icons/GithubIcon';
-import InstagramIcon from '../icons/InstagramIcon';
-import FacebookIcon from '../icons/FacebookIcon';
+import { LinkedInIcon, GithubIcon, InstagramIcon, FacebookIcon } from '../icons'
 
 export default {
   component: FooterComponent,

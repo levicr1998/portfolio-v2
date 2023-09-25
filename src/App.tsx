@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import * as React from 'react';
-import { Home } from './pages/Home';
+import { Home } from './pages/Home/Home';
 import * as contentful from 'contentful';
 import { ContentfulContext } from './context/ContentfulContext';
-import { Project } from './pages/Project';
+import { Project } from './pages/Project/Project';
 import { projectLoader } from './helpers';
 
 function App() {

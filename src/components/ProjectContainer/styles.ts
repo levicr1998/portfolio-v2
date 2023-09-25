@@ -4,6 +4,8 @@ export const styles = {
         flex-col 
         bg-white 
         p-4
+        w-[90%]
+        mx-auto
         md:grid 
         md:grid-cols-10 
     `,
@@ -14,15 +16,16 @@ export const styles = {
   detailsAndTitleContainer: `
         flex 
         flex-col 
-        m-6 
+        my-6
+        mx-4
         lg:flex-row 
         lg:items-center
     `,
   title: `
         font-black 
         text-3xl 
-        mr-3 
-        whitespace-nowrap 
+        break-words
+        mr-3  
         pb-3 
         lg:pb-0
     `,
@@ -41,6 +44,12 @@ export const styles = {
         p-1.5 
         m-1
     `,
+  companyIcon: `
+        w-7 
+        h-7 
+        stroke-2 
+        stroke-primary-blue
+  `,
   companyContainer: `
         flex 
         flex-row 
@@ -65,13 +74,19 @@ export const styles = {
         flex-wrap
     `,
   button: `
-        text-white 
-        bg-primary-blue 
+        border
         w-32 
         font-bold 
         py-1.5 
         mx-4 
         mb-4
+        border-primary-blue
+        text-primary-blue
+        bg-white
+        border-primary-blue
+        duration-500
+        hover:text-white 
+        hover:bg-primary-blue 
     `,
   imageContainer: `
         flex 
@@ -91,8 +106,9 @@ export const styles = {
         md:w-32
     `,
   desktopImage: `
-        w-1/2  
+        w-full
         h-auto
+        xs:w-1/2  
         md:w-[20rem]
     `
 };

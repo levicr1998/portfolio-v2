@@ -11,7 +11,7 @@ const BackButton = ({ className }: Props) => {
   const navigate = useNavigate();
   return (
     <button onClick={() => navigate(-1)} className={twMerge(styles.button, className)}>
-      <BackIcon className="w-10 h-10" />
+      <BackIcon className={styles.backIcon} />
     </button>
   );
 };

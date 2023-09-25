@@ -46,6 +46,7 @@ module.exports = {
   plugins: [
     require('tailwind-safelist-generator')({
       patterns: [
+          'bg-{colors}/40',
         'text-{colors}',
         'to-{colors}',
         'bg-{colors}/80',

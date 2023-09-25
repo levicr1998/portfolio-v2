@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
-import Loader from '../components/Loader/Loader';
-import Header from '../components/Header/Header';
-import TextTyper from '../components/TextTyper/TextTyper';
+import Loader from '../../components/Loader/Loader';
+import Header from '../../components/Header/Header';
+import TextTyper from '../../components/TextTyper/TextTyper';
 import SkillsContainer, {
   SkillsContainerProps
-} from '../components/SkillsContainer/SkillsContainer';
-import { ContentfulContext } from '../context/ContentfulContext';
-import ProjectContainer from '../components/ProjectContainer/ProjectContainer';
-import Footer from '../components/Footer/Footer';
-import { InstagramIcon, LinkedInIcon, GithubIcon, FacebookIcon} from '../components/icons'
+} from '../../components/SkillsContainer/SkillsContainer';
+import { ContentfulContext } from '../../context/ContentfulContext';
+import ProjectContainer from '../../components/ProjectContainer/ProjectContainer';
+import Footer from '../../components/Footer/Footer';
+import { footerItems } from '../../components/Footer/data';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -95,7 +95,7 @@ export const Home = () => {
           />
           <div className="flex justify-center items-center col-span-6 md:col-span-3 md:row-span-2 md:col-start-6 lg:col-start-5">
             <img
-              src="../../assets/img/intro-image.png"
+              src="../../../assets/img/intro-image.png"
               alt="Levi Crietee"
               className="rounded-full w-60 h-60 xs:w-64 xs:h-64 md:h-60 md:w-60 lg:w-80 lg:h-80"
             />
@@ -132,7 +132,7 @@ export const Home = () => {
               improve myself daily by the feedback of my team members and new things I learned that
               day.
             </p>
-            <button className="border border-primary-blue text-primary-blue font-bold px-4 py-2.5 hover:bg-primary-blue hover:text-white">
+            <button className="border border-primary-blue text-primary-blue font-bold px-4 py-2.5  duration-500 hover:bg-primary-blue hover:text-white">
               Download resume
             </button>
           </div>
@@ -156,7 +156,7 @@ export const Home = () => {
           </svg>
         </div>
         <div className="container mx-auto py-5 mb-48">
-          <h3 className="text-3xl font-extrabold text-white mt-32">My projects</h3>
+          <h3 className="text-3xl font-extrabold text-white mt-32 w-[90%] mx-auto">My projects</h3>
           {projects.map((project) => (
             <ProjectContainer
               containerClasses="mt-8"
@@ -167,27 +167,7 @@ export const Home = () => {
             />
           ))}
         </div>
-        <Footer
-          items={[
-            {
-              icon: LinkedInIcon,
-              link: 'https://www.linkedin.com/in/levi-crietee-84ab74145/'
-            },
-            {
-              icon: GithubIcon,
-              link: 'https://github.com/levicr1998'
-            },
-            {
-              icon: InstagramIcon,
-              link: 'https://www.instagram.com/levicrietee/'
-            },
-
-            {
-              icon: FacebookIcon,
-              link: 'https://www.facebook.com/levi.crietee'
-            }
-          ]}
-        />
+        <Footer items={footerItems} />
       </div>
     </>
   );

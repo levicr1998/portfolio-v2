@@ -9,7 +9,8 @@ export const styles = {
   contactContainer: `
         bg-white
         w-[90%]
-        lg:w-1/2 
+        xs:w-[400px]
+        md:w-[600px]
         absolute 
         -top-32 
         flex 
@@ -21,19 +22,38 @@ export const styles = {
         text-3xl 
         font-extrabold 
         text-primary-blue 
-        my-4
+        mb-2
   `,
   contactSubtitle: `
-        my-4
+        mb-6
   `,
   contactButton: `
+        group
         border 
         text-primary-blue 
         font-bold 
-        w-56 
+        w-full
         py-2.5 
+        transition-colors
+        duration-500
         hover:bg-primary-blue 
         hover:text-white
+        sm:w-56 
+  `,
+  contactButtonTitle: `
+        ml-1.5  
+        duration-500 
+        group-hover:text-white
+        group-hover:-translate-x-4
+  `,
+  sendContainer: `
+        flex 
+        items-center 
+        justify-center
+  `,
+  sendIcon: `
+        duration-500
+        group-hover:translate-x-3 
   `,
   footer: `
         flex 
@@ -60,6 +80,8 @@ export const styles = {
     `,
   img: `
     scale-[0.75]
+    w-12 
+    h-12
     `,
   copyrightText: `   
     text-primary-blue 

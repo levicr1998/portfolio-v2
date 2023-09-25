@@ -18,7 +18,6 @@ export type Props = {
 } & Partial<Entry>;
 
 const ProjectContainer = ({
-  id,
   sys,
   title,
   details,
@@ -45,7 +44,7 @@ const ProjectContainer = ({
           </div>
         </div>
         <div className={styles.companyContainer}>
-          <CompanyIcon className="w-8 h-8 stroke-2 stroke-primary-blue" />
+          <CompanyIcon className={styles.companyIcon} />
           <span className={styles.companyTitle}>{company}</span>
         </div>
         <p className={styles.description}>{description}</p>

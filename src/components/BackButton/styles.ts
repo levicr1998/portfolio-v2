@@ -9,5 +9,9 @@ export const styles = {
     border-2 
     border-white 
     rounded-full
-    `
+    `,
+  backIcon: `
+    w-10 
+    h-10
+  `
 };
