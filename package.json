@@ -21,6 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "cf-content-types-generator": "^2.12.8",
     "contentful": "^10.5.2",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",

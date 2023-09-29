@@ -1,103 +1,49 @@
-import { useContext, useEffect, useState } from 'react';
 import Loader from '../../components/Loader/Loader';
 import Header from '../../components/Header/Header';
 import TextTyper from '../../components/TextTyper/TextTyper';
-import SkillsContainer, {
-  SkillsContainerProps
-} from '../../components/SkillsContainer/SkillsContainer';
-import { ContentfulContext } from '../../context/ContentfulContext';
 import ProjectContainer from '../../components/ProjectContainer/ProjectContainer';
 import Footer from '../../components/Footer/Footer';
 import { footerItems } from '../../components/Footer/data';
+import { motion } from 'framer-motion';
+import { useScrollToAnchor } from '../../hooks/useScrollToAnchor';
+import { skillsContainerItems } from './data';
+import { useGetContentfulProjects } from '../../hooks/useGetContentfulProjects';
+import SkillsContainer from '../../components/SkillsContainer/SkillsContainer';
+import { useState } from 'react';
+import { animationProps } from '../../helpers';
+import { useGetCvUrl } from '../../hooks/useGetCvUrl';
 
 export const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [projects, setProjects] = useState<any[]>([]);
-  const client = useContext(ContentfulContext);
-
-  useEffect(() => {
-    client
-      ?.getEntries({
-        skip: 0,
-        limit: 10,
-        content_type: 'project'
-      })
-      .then((entries) => setProjects(entries?.items?.map((item) => item)));
-  }, [client, setProjects]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
-
+  useScrollToAnchor();
+  const [showMoreProjects, setShowMoreProjects] = useState(false);
+  const [projects, isLoading] = useGetContentfulProjects(showMoreProjects ? 10 : 5);
+  const [cvFileUrl, isLoadingCV] = useGetCvUrl();
+  console.log(cvFileUrl);
   if (isLoading) {
     return <Loader />;
   }
-
-  const skillsContainerItems: SkillsContainerProps[] = [
-    {
-      title: 'Used languages',
-      skills: [
-        'HTML',
-        'CSS/SCSS',
-        'Javascript',
-        'Typescript',
-        'Java',
-        'PHP',
-        'C#',
-        'SQL',
-        'NoSQL',
-        'Dart'
-      ]
-    },
-    {
-      title: 'Used frameworks',
-      skills: [
-        'Springboot',
-        'Angular',
-        'Vue.js',
-        'Symfony',
-        'Capacitor',
-        'Flutter',
-        'React',
-        'React Native',
-        'Next.JS'
-      ]
-    },
-    {
-      title: 'Used tools',
-      skills: [
-        'Git & GitHub',
-        'Adobe XD',
-        'Docker Desktop',
-        'Postman',
-        'IntelliJ',
-        'Visual Code',
-        'Figma',
-        'Trello',
-        'JIRA',
-        'Windows Terminal',
-        'Android Studio',
-        'Azure DevOps'
-      ]
-    }
-  ];
 
   return (
     <>
       <div className="bg-primary-blue h-full relative">
         <Header />
-        <div className="grid grid-cols-6 md:grid-cols-8 grid-rows-3 container mx-auto h-[calc(100vh-5rem)] justify-center">
-          <TextTyper
+        <div
+          id="home"
+          className="grid grid-cols-6 md:grid-cols-8 grid-rows-3 container mx-auto h-[calc(100vh-5rem)] justify-center">
+          <motion.div
             className="col-span-6 md:col-span-2 md:col-start-1 lg:col-start-2 md:row-span-2 mx-auto text-center"
-            wordsToType={['Developer', 'Motivator', 'Teamplayer', 'Discoverer', 'Creator']}
-          />
+            {...animationProps(-200)}>
+            <TextTyper
+              className="w-full h-full"
+              wordsToType={['Developer', 'Motivator', 'Teamplayer', 'Discoverer', 'Creator']}
+            />
+          </motion.div>
           <div className="flex justify-center items-center col-span-6 md:col-span-3 md:row-span-2 md:col-start-6 lg:col-start-5">
-            <img
+            <motion.img
               src="../../../assets/img/intro-image.png"
               alt="Levi Crietee"
               className="rounded-full w-60 h-60 xs:w-64 xs:h-64 md:h-60 md:w-60 lg:w-80 lg:h-80"
+              {...animationProps(200)}
             />
           </div>
         </div>
@@ -121,29 +67,38 @@ export const Home = () => {
           </svg>
         </div>
       </div>
-      <div className="bg-white mb-20">
-        <div className="flex flex-col md:grid md:grid-cols-7 md:grid-rows-4 container mx-auto md:h-screen justify-center">
+      <div className="bg-white mb-20" id="about-me-container">
+        <motion.div
+          {...animationProps(-200)}
+          className="flex flex-col md:grid md:grid-cols-7 md:grid-rows-4 container mx-auto md:h-screen justify-center">
           <div className="mx-5 mt-20 md:mx-0 md:my-0 col-start-2 col-span-5 md:col-start-1 md:col-span-3 md:row-start-2 lg:col-span-2 lg:col-start-2">
             <h3 className="text-3xl font-extrabold text-primary-blue mb-4">About me</h3>
-            <p className="text-grey mb-4">
-              Hi, my name is Levi Crietee. I’m a passionated ICT & Software Engineering student at
-              Fontys. I like to learn new things and challenge myself by working with new advanced
-              technologies. I’m a motivated and positive person. I like to work in a team and
-              improve myself daily by the feedback of my team members and new things I learned that
-              day.
+            <p className="text-grey mb-8">
+              Hello, my name is Levi Crietee. <br /> <br />
+              I am a dedicated Frontend Developer with a passion for continuous learning and
+              embracing new, advanced technologies. <br /> <br /> I am a motivated and positive
+              individual who thrives in a team environment, constantly seeking opportunities to
+              enhance my skills through constructive feedback from my colleagues and the knowledge I
+              acquire each day.
             </p>
-            <button className="border border-primary-blue text-primary-blue font-bold px-4 py-2.5  duration-500 hover:bg-primary-blue hover:text-white">
+            <a
+              target="_blank"
+              href={cvFileUrl}
+              className="border border-primary-blue text-primary-blue font-bold px-4 py-2.5  duration-500 hover:bg-primary-blue hover:text-white"
+              rel="noreferrer">
               Download resume
-            </button>
+            </a>
           </div>
-          <div className="mx-5 my-10 md:my-0 md:mx-0 col-start-2 col-span-5 md:col-start-5 md:col-span-3 md:row-start-2 lg:col-start-5 lg:col-span-2">
+          <motion.div
+            {...animationProps(200)}
+            className="mx-5 my-10 md:my-0 md:mx-0 col-start-2 col-span-5 md:col-start-5 md:col-span-3 md:row-start-2 lg:col-start-5 lg:col-span-2">
             {skillsContainerItems?.map((props) => (
               <SkillsContainer className="mt-4 first-of-type:mt-0" key={props.title} {...props} />
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-      <div className="bg-primary-blue relative">
+      <div className="bg-primary-blue relative" id="projects-container">
         <div className="custom-shape-divider-top-1690034218">
           <svg
             data-name="Layer 2"
@@ -157,15 +112,24 @@ export const Home = () => {
         </div>
         <div className="container mx-auto py-5 mb-48">
           <h3 className="text-3xl font-extrabold text-white mt-32 w-[90%] mx-auto">My projects</h3>
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <ProjectContainer
               containerClasses="mt-8"
               key={project.fields?.id}
               image={project?.fields?.thumbnail?.fields?.file?.url}
+              isEven={index % 2 === 0}
               {...project.fields}
               {...project}
             />
           ))}
+          <div className="w-full flex justify-center mt-8">
+            <motion.button
+              {...animationProps(-100)}
+              className="border border-white text-white font-bold px-4 py-2.5 duration-500 hover:bg-white hover:text-primary-blue"
+              onClick={() => setShowMoreProjects((prevState) => !prevState)}>
+              {showMoreProjects ? 'Show less projects' : 'Show more projects'}
+            </motion.button>
+          </div>
         </div>
         <Footer items={footerItems} />
       </div>

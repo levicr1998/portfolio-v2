@@ -3,40 +3,42 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { classNames } from '../../helpers/classHelper';
 import { styles } from './styles';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { headerItems } from './data';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const items = [
-    {
-      link: '#home',
-      title: 'HOME'
-    },
-    {
-      link: '#about-me-container',
-      title: 'ABOUT'
-    },
-    {
-      link: '#contact-container',
-      title: 'CONTACT'
-    }
-  ];
-
   return (
     <header className={styles.header}>
-      <img
+      <motion.img
         alt="emoij levi"
         className={styles.emoij}
         data-aos="fade-in"
         data-aos-duration="1000"
         src="../../assets/img/emoij-levi.svg"
+        viewport={{ once: true }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1, rotate: 720 }}
+        transition={{
+          duration: 1
+        }}
       />
       <ul className={styles.ul}>
-        {items?.map(({ title, link }, index) => (
-          <li key={index}>
-            <a href={link} className={styles.li}>
+        {headerItems?.map(({ title, link, delay }, index) => (
+          <motion.li
+            key={index}
+            viewport={{ once: true }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.3,
+              delay
+            }}>
+            <Link to={link} className={styles.li}>
               {title}
-            </a>
-          </li>
+            </Link>
+          </motion.li>
         ))}
       </ul>
       <button className={styles.menuButton} onClick={() => setShowMenu(true)}>
@@ -50,11 +52,14 @@ const Header = () => {
           </button>
         </div>
         <ul className={styles.mobileMenuList}>
-          {items?.map(({ title, link }, index) => (
+          {headerItems?.map(({ title, link }, index) => (
             <li key={index} className={styles.mobileMenuListItem}>
-              <a href={link} className={styles.mobileMenuListItemLink}>
+              <Link
+                to={link}
+                className={styles.mobileMenuListItemLink}
+                onClick={() => setShowMenu(false)}>
                 {title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

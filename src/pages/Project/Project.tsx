@@ -1,24 +1,26 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, ScrollRestoration } from 'react-router-dom';
 import BackButton from '../../components/BackButton/BackButton';
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import { TypeProject } from '../../types';
 import Footer from '../../components/Footer/Footer';
-import { CompanyIcon } from '../../components/icons';
+import { CompanyIcon, LinkIcon } from '../../components/icons';
 import SkillsContainer from '../../components/SkillsContainer/SkillsContainer';
 import { classNames } from '../../helpers/classHelper';
-import useScrollToTop from '../../hooks/useScrollToTop';
 import { footerItems } from '../../components/Footer/data';
+import { motion } from 'framer-motion';
+import { animationProps } from '../../helpers';
 
 export const Project = () => {
-  useScrollToTop();
   const projectContenful = useLoaderData() as TypeProject;
   const project = {
     ...projectContenful?.fields,
     videoUrl: projectContenful?.fields?.video?.fields?.file?.url,
     themeColor: projectContenful?.fields?.themeColor ?? 'primary-blue'
   };
+  console.log(project);
   return (
-    <div>
+    <>
+      <ScrollRestoration />
       <div
         className={classNames(
           'bg-gradient-to-b h-[200px]',
@@ -26,7 +28,11 @@ export const Project = () => {
         )}>
         <div className="grid grid-cols-3 pt-12 items-center">
           <BackButton className={classNames('relative z-10 ml-12', `bg-${project?.themeColor}`)} />
-          <h3 className="text-3xl font-extrabold text-white text-center">{project?.title}</h3>
+          <motion.h3
+            className="text-3xl font-extrabold text-white text-center "
+            {...animationProps(0)}>
+            {project?.title}
+          </motion.h3>
         </div>
       </div>
       <div
@@ -36,9 +42,15 @@ export const Project = () => {
           project?.videoUrl ? 'pb-52 lg:pb-[500px]' : 'pb-52'
         )}>
         <div className="mx-12 grid grid-cols-4">
-          <h3 className="text-3xl font-extrabold text-white mb-6 col-span-4">Project details</h3>
-          <div className="bg-white/10 w-full p-8 col-span-4 lg:col-span-2 relative">
-            <div className="flex items-center content-center">
+          <motion.h3
+            className="text-3xl font-extrabold text-white mb-6 col-span-4"
+            {...animationProps(-200)}>
+            Project details
+          </motion.h3>
+          <motion.div
+            className="bg-white/10 w-full px-5 pb-5 pt-4 col-span-4 lg:col-span-2 relative"
+            {...animationProps(-200)}>
+            <div className="flex items-center justify-between">
               <div className="flex flex-wrap items-center">
                 {project?.details !== undefined &&
                   project?.details.map((detail, index) => (
@@ -52,6 +64,11 @@ export const Project = () => {
                     </span>
                   ))}
               </div>
+              {(project?.links as any)?.live?.enabled && (
+                <a href={(project?.links as any)?.live?.link}>
+                  <LinkIcon className="fill-white w-7 h-7s" />
+                </a>
+              )}
             </div>
             <div className="flex items-center text-white font-bold mt-2">
               <CompanyIcon className="stroke-2 stroke-white w-8 h-8" />
@@ -74,17 +91,17 @@ export const Project = () => {
               </div>
             }
             {project?.videoUrl && (
-              <div
+              <motion.div
+                {...animationProps(400)}
                 className={classNames(
                   'hidden bg-black lg:flex absolute -bottom-[380px] lg:-bottom-[320px] lg:-right-[450px] w-[500px] h-[350px] justify-center'
                 )}>
                 <VideoPlayer videoUrl={(project?.videoUrl as string) ?? ''} />
-              </div>
+              </motion.div>
             )}
-          </div>
+          </motion.div>
           {project?.videoUrl && (
-            <div
-              className='bg-black flex mt-8 w-full col-span-4 h-[350px] lg:hidden'>
+            <div className="bg-black flex mt-8 w-full col-span-4 h-[350px] lg:hidden">
               <VideoPlayer videoUrl={(project?.videoUrl as string) ?? ''} />
             </div>
           )}
@@ -92,6 +109,6 @@ export const Project = () => {
       </div>
       <div></div>
       <Footer themeColor={project?.themeColor} items={footerItems} />
-    </div>
+    </>
   );
 };

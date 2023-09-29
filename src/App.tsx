@@ -5,6 +5,7 @@ import * as contentful from 'contentful';
 import { ContentfulContext } from './context/ContentfulContext';
 import { Project } from './pages/Project/Project';
 import { projectLoader } from './helpers';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   const client = contentful.createClient({
@@ -25,11 +26,11 @@ function App() {
   ]);
 
   return (
-    <div>
+    <AnimatePresence mode="wait">
       <ContentfulContext.Provider value={client}>
         <RouterProvider router={router} />
       </ContentfulContext.Provider>
-    </div>
+    </AnimatePresence>
   );
 }
 

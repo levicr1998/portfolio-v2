@@ -3,6 +3,7 @@ import { ReactElement, SVGProps } from 'react';
 import { SendIcon } from '../icons';
 import { classNames } from '../../helpers/classHelper';
 import { twMerge } from 'tailwind-merge';
+import { motion } from 'framer-motion';
 
 type Props = {
   items: Item[];
@@ -16,8 +17,15 @@ type Item = {
 };
 
 const Footer = ({ items, themeColor = 'primary-blue' }: Props) => (
-  <div className={styles.container}>
-    <div className={styles.contactContainer}>
+  <div id="contact-container" className={styles.container}>
+    <motion.div
+      className={styles.contactContainer}
+      viewport={{ once: true }}
+      initial={{ opacity: 0, x: 200 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 0.5
+      }}>
       <h3 className={twMerge(styles.contactTitle, `text-${themeColor}`)}>Contact me</h3>
       <span className={styles.contactSubtitle}>Feel free to send me a message!</span>
       <button
@@ -27,7 +35,7 @@ const Footer = ({ items, themeColor = 'primary-blue' }: Props) => (
           <span className={styles.contactButtonTitle}>Get in touch</span>
         </div>
       </button>
-    </div>
+    </motion.div>
     <footer className={styles.footer}>
       <ul className={styles.ul}>
         {items.map(({ icon: Icon, link, isGithubIcon }, index) => (

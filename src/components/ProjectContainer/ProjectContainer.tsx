@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Entry } from 'contentful';
 import { CompanyIcon } from '../icons';
 import { styles } from './styles';
+import { motion } from 'framer-motion';
+import { animationProps } from '../../helpers';
 
 export type Props = {
   id: string;
@@ -15,6 +17,7 @@ export type Props = {
   image: string;
   containerClasses?: string;
   isMobileThumbnail: boolean;
+  isEven: boolean;
 } & Partial<Entry>;
 
 const ProjectContainer = ({
@@ -26,11 +29,17 @@ const ProjectContainer = ({
   skills,
   image,
   containerClasses,
+  isEven,
   isMobileThumbnail
 }: Props) => {
   const navigate = useNavigate();
   return (
-    <div className={classNames(containerClasses, styles.container)}>
+    <motion.div
+      {...animationProps(isEven ? 200 : -200)}
+      transition={{
+        duration: 0.5
+      }}
+      className={classNames(containerClasses, styles.container)}>
       <div className={styles.containerWrapper}>
         <div className={styles.detailsAndTitleContainer}>
           <h1 className={styles.title}>{title}</h1>
@@ -65,7 +74,7 @@ const ProjectContainer = ({
           )}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
