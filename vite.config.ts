@@ -4,9 +4,18 @@ import svgr from 'vite-plugin-svgr';
 import * as path from 'path';
 
 export default defineConfig({
+  build: {
+    commonjsOptions: {
+      include: ['tailwind-config.cjs']
+    }
+  },
+  optimizeDeps: {
+    include: ['tailwind-config']
+  },
   resolve: {
     alias: {
-      '@portfolio': path.resolve(__dirname, './src')
+      '@portfolio': path.resolve(__dirname, './src'),
+      'tailwind-config': path.resolve(__dirname, './tailwind.config.cjs')
     }
   },
   plugins: [

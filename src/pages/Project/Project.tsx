@@ -9,6 +9,8 @@ import { classNames } from '../../helpers/classHelper';
 import { footerItems } from '../../components/Footer/data';
 import { motion } from 'framer-motion';
 import { animationProps } from '../../helpers';
+import { useCurrentBreakpoints } from '../../hooks/useCurrentBreakpoint';
+import { useMemo } from 'react';
 
 export const Project = () => {
   const projectContenful = useLoaderData() as TypeProject;
@@ -17,7 +19,10 @@ export const Project = () => {
     videoUrl: projectContenful?.fields?.video?.fields?.file?.url,
     themeColor: projectContenful?.fields?.themeColor ?? 'primary-blue'
   };
-  console.log(project);
+  const breakpoints = useCurrentBreakpoints();
+  const isDesktop = useMemo(() => {
+    return breakpoints.includes('lg');
+  }, [breakpoints]);
   return (
     <>
       <ScrollRestoration />
@@ -81,16 +86,16 @@ export const Project = () => {
             {
               <div className="mt-2">
                 <span className="font-bold text-white">Used technologies</span>
-                <p>
+                <div>
                   <SkillsContainer
                     skills={project?.skills ?? []}
                     themeColor={project?.themeColor}
                     hasProjectThemeColors
                   />
-                </p>
+                </div>
               </div>
             }
-            {project?.videoUrl && (
+            {project?.videoUrl && isDesktop && (
               <motion.div
                 {...animationProps(400)}
                 className={classNames(
@@ -100,7 +105,7 @@ export const Project = () => {
               </motion.div>
             )}
           </motion.div>
-          {project?.videoUrl && (
+          {project?.videoUrl && !isDesktop && (
             <div className="bg-black flex mt-8 w-full col-span-4 h-[350px] lg:hidden">
               <VideoPlayer videoUrl={(project?.videoUrl as string) ?? ''} />
             </div>

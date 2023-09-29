@@ -17,8 +17,7 @@ export const Home = () => {
   useScrollToAnchor();
   const [showMoreProjects, setShowMoreProjects] = useState(false);
   const [projects, isLoading] = useGetContentfulProjects(showMoreProjects ? 10 : 5);
-  const [cvFileUrl, isLoadingCV] = useGetCvUrl();
-  console.log(cvFileUrl);
+  const [cvFileUrl] = useGetCvUrl();
   if (isLoading) {
     return <Loader />;
   }
@@ -68,10 +67,10 @@ export const Home = () => {
         </div>
       </div>
       <div className="bg-white mb-20" id="about-me-container">
-        <motion.div
-          {...animationProps(-200)}
-          className="flex flex-col md:grid md:grid-cols-7 md:grid-rows-4 container mx-auto md:h-screen justify-center">
-          <div className="mx-5 mt-20 md:mx-0 md:my-0 col-start-2 col-span-5 md:col-start-1 md:col-span-3 md:row-start-2 lg:col-span-2 lg:col-start-2">
+        <div className="flex flex-col md:grid md:grid-cols-7 md:grid-rows-4 container mx-auto md:h-screen justify-center">
+          <motion.div
+            className="mx-5 mt-20 md:mx-0 md:my-0 col-start-2 col-span-5 md:col-start-1 md:col-span-3 md:row-start-2 lg:col-span-2 lg:col-start-2"
+            {...animationProps(-200)}>
             <h3 className="text-3xl font-extrabold text-primary-blue mb-4">About me</h3>
             <p className="text-grey mb-8">
               Hello, my name is Levi Crietee. <br /> <br />
@@ -88,7 +87,7 @@ export const Home = () => {
               rel="noreferrer">
               Download resume
             </a>
-          </div>
+          </motion.div>
           <motion.div
             {...animationProps(200)}
             className="mx-5 my-10 md:my-0 md:mx-0 col-start-2 col-span-5 md:col-start-5 md:col-span-3 md:row-start-2 lg:col-start-5 lg:col-span-2">
@@ -96,7 +95,7 @@ export const Home = () => {
               <SkillsContainer className="mt-4 first-of-type:mt-0" key={props.title} {...props} />
             ))}
           </motion.div>
-        </motion.div>
+        </div>
       </div>
       <div className="bg-primary-blue relative" id="projects-container">
         <div className="custom-shape-divider-top-1690034218">
