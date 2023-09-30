@@ -16,7 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@portfolio": ["./src"]
+      "@portfolio/*": ["./src/*"],
+      "tailwind-config": ["./tailwind.config.cjs"]
     }
   },
   "include": ["src", "**/*.svg?react"],
