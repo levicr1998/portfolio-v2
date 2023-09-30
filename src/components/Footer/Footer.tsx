@@ -28,13 +28,14 @@ const Footer = ({ items, themeColor = 'primary-blue' }: Props) => (
       }}>
       <h3 className={twMerge(styles.contactTitle, `text-${themeColor}`)}>Contact me</h3>
       <span className={styles.contactSubtitle}>Feel free to send me a message!</span>
-      <button
+      <a
+        href="mailto:levicrietee@hotmail.com"
         className={classNames(styles.contactButton, `border-${themeColor} hover:bg-${themeColor}`)}>
         <div className={classNames(styles.sendContainer, `text-${themeColor}`)}>
           <SendIcon className={classNames(styles.sendIcon, `fill-${themeColor}`)} />
           <span className={styles.contactButtonTitle}>Get in touch</span>
         </div>
-      </button>
+      </a>
     </motion.div>
     <footer className={styles.footer}>
       <ul className={styles.ul}>

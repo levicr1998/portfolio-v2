@@ -79,7 +79,7 @@ const TextTyper = ({
     <h1 className={classNames(className, styles.title)}>
       <span>Welcome,</span>
       <span>I'm Levi. </span>
-      <span>
+      <span className='whitespace-nowrap'>
         I'm a <b>{typeValue}</b>
         <span className={classNames(typeStatus ? '' : styles.typingAnimation, styles.typingIcon)} />
       </span>

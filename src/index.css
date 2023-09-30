@@ -55,6 +55,7 @@
     display: block;
     width: calc(138% + 1.3px);
     height: 150px;
+    scale: 1.2;
 }
 
 .custom-shape-divider-bottom-1690033990 .shape-fill {
