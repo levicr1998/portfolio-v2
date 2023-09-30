@@ -1,14 +1,22 @@
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 import { classNames } from '../../helpers/classHelper';
 import { styles } from './styles';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { headerItems } from './data';
+import { BarsIcon, XMarkIcon } from '@portfolio/components/icons';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'visible';
+    }
+  }, [showMenu]);
+
   return (
     <header className={styles.header}>
       <motion.img
@@ -42,13 +50,13 @@ const Header = () => {
         ))}
       </ul>
       <button className={styles.menuButton} onClick={() => setShowMenu(true)}>
-        <FontAwesomeIcon icon={faBars} className={styles.menuButtonIcon} />
+        <BarsIcon className={styles.menuButtonIcon} />
       </button>
       <div
         className={classNames(showMenu ? 'translate-x-0' : 'translate-x-full', styles.mobileMenu)}>
         <div className={styles.menuExitButtonContainer}>
           <button onClick={() => setShowMenu(false)}>
-            <FontAwesomeIcon icon={faXmark} className={styles.menuExitIcon} />
+            <XMarkIcon className={styles.menuExitIcon} />
           </button>
         </div>
         <ul className={styles.mobileMenuList}>

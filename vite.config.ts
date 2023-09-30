@@ -7,6 +7,9 @@ export default defineConfig({
   build: {
     commonjsOptions: {
       include: ['tailwind-config.cjs']
+    },
+    rollupOptions: {
+      external: ['react-router-dom', 'framer-motion', 'react', 'tailwindcss/resolveConfig']
     }
   },
   optimizeDeps: {

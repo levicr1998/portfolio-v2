@@ -34,10 +34,10 @@ export const styles = {
         justify-end
   `,
   menuExitIcon: `
-        text-primary-blue 
+        fill-primary-blue 
         w-6 
         h-6 
-        p-4
+        m-6
   `,
   mobileMenuList: `
         flex 
@@ -54,7 +54,7 @@ export const styles = {
         text-xl
   `,
   menuButtonIcon: `
-        text-white 
+        fill-white 
         w-6 
         h-6
     `,
@@ -65,6 +65,7 @@ export const styles = {
         h-full 
         top-0 
         left-0 
+        z-20
         ease-in-out 
         duration-300 
         overflow-x-hidden 

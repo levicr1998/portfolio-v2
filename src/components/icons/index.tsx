@@ -6,6 +6,8 @@ import GithubIcon from './github-icon.svg?react';
 import InstagramIcon from './instagram-icon.svg?react';
 import LinkedInIcon from './linkedin-icon.svg?react';
 import LinkIcon from './link-icon.svg?react';
+import BarsIcon from './bars-icon.svg?react';
+import XMarkIcon from './x-mark-icon.svg?react';
 
 export {
   BackIcon,
@@ -15,5 +17,7 @@ export {
   GithubIcon,
   InstagramIcon,
   LinkedInIcon,
-  LinkIcon
+  LinkIcon,
+  BarsIcon,
+  XMarkIcon
 };
