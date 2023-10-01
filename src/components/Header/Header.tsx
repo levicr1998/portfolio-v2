@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { headerItems } from './data';
 import { BarsIcon, XMarkIcon } from '@portfolio/components/icons';
+import emoijUrl from '@portfolio/assets/img/emoij-levi.svg';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -24,7 +25,7 @@ const Header = () => {
         className={styles.emoij}
         data-aos="fade-in"
         data-aos-duration="1000"
-        src="../../assets/img/emoij-levi.svg"
+        src={emoijUrl}
         viewport={{ once: true }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, rotate: 720 }}
