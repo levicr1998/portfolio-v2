@@ -14,7 +14,7 @@ export default defineConfig({
 
     }
   },
-  base: '/portfolio-v2/',
+  base: '/',
   plugins: [
     react(),
     svgr({
