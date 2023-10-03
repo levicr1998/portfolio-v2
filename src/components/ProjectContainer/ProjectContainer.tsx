@@ -60,7 +60,9 @@ const ProjectContainer = ({
         <div className={styles.skillsContainer}>
           <SkillsContainer skills={skills} />
         </div>
-        <button className={styles.button} onClick={() => navigate(`/portfolio-v2/projects/${sys?.id}`)}>
+        <button
+          className={styles.button}
+          onClick={() => navigate(`/projects/${sys?.id}`)}>
           Learn more
         </button>
       </div>

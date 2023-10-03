@@ -15,11 +15,11 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: '/portfolio-v2/',
+      path: '/',
       element: <Home />
     },
     {
-      path: '/portfolio-v2/projects/:projectId',
+      path: '/projects/:projectId',
       element: <Project />,
       loader: projectLoader
     }
