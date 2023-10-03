@@ -39,7 +39,7 @@ export const Home = () => {
             />
           </motion.div>
           <div className="flex justify-center items-center col-span-6 md:col-span-3 md:row-span-2 md:col-start-6 lg:col-start-5">
-            <img
+            <motion.img
               src={introImgUrl}
               alt="Levi Crietee"
               className="rounded-full w-60 h-60 xs:w-64 xs:h-64 md:h-60 md:w-60 lg:w-80 lg:h-80"
