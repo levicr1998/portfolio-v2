@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider} from 'react-router-dom';
 import * as React from 'react';
 import { Home } from './pages/Home/Home';
 import * as contentful from 'contentful';
@@ -13,7 +13,7 @@ function App() {
     accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN
   });
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: '/',
       element: <Home />
