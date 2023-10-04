@@ -31,12 +31,35 @@ export const Home = () => {
           id="home"
           className="grid grid-cols-6 md:grid-cols-8 grid-rows-3 container mx-auto h-[calc(100vh-5rem)] justify-center">
           <motion.div
-            className="col-span-6 md:col-span-2 md:col-start-1 lg:col-start-2 md:row-span-2 mx-auto text-center"
+            className="flex justify-center lg:justify-normal col-span-6 md:col-span-2 md:col-start-1 lg:col-start-2 md:row-span-2 mx-auto text-center w-full lg:w-[390px]"
             {...animationProps(-200)}>
-            <TextTyper
-              className="w-full h-full"
-              wordsToType={['Developer', 'Motivator', 'Teamplayer', 'Discoverer', 'Creator']}
-            />
+            <div className="flex flex-col self-center">
+              <TextTyper
+                className="mt-3"
+                wordsToType={['Developer', 'Motivator', 'Teamplayer', 'Discoverer', 'Creator']}
+              />
+              <motion.a
+                whileHover="hover"
+                className="flex group mx-auto w-fit mt-5 text-white border border-white px-4 py-2.5 font-bold hover:bg-white hover:text-primary-blue duration-500">
+                Contact me!
+                <motion.p
+                  className="ml-2"
+                  variants={{
+                    hover: {
+                      rotate: [45, 0, 45],
+                      transition: {
+                        rotate: {
+                          duration: 0.5,
+                          repeat: Infinity,
+                          ease: 'easeIn'
+                        }
+                      }
+                    }
+                  }}>
+                  👋🏼
+                </motion.p>
+              </motion.a>
+            </div>
           </motion.div>
           <div className="flex justify-center items-center col-span-6 md:col-span-3 md:row-span-2 md:col-start-6 lg:col-start-5">
             <motion.img
@@ -142,7 +165,11 @@ export const Home = () => {
           </svg>
         </div>
         <div className="container mx-auto py-5 mb-48">
-          <h3 className="text-3xl font-extrabold text-white mt-32 w-[90%] mx-auto">My projects</h3>
+          <motion.h3
+            {...animationProps(-100)}
+            className="text-3xl font-extrabold text-white mt-32 w-[90%] mx-auto">
+            My projects
+          </motion.h3>
           {projects.map((project, index) => (
             <ProjectContainer
               containerClasses="mt-8"
@@ -153,14 +180,13 @@ export const Home = () => {
               {...project}
             />
           ))}
-          <div className="w-full flex justify-center mt-8">
-            <motion.button
-              {...animationProps(-100)}
+          <motion.div {...animationProps(-100)} className="w-full flex justify-center mt-8">
+            <button
               className="border border-white text-white font-bold px-4 py-2.5 duration-500 hover:bg-white hover:text-primary-blue"
               onClick={() => setShowMoreProjects((prevState) => !prevState)}>
               {showMoreProjects ? 'Show less projects' : 'Show more projects'}
-            </motion.button>
-          </div>
+            </button>
+          </motion.div>
         </div>
         <Footer items={footerItems} />
       </div>
