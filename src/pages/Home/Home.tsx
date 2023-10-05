@@ -31,7 +31,7 @@ export const Home = () => {
           id="home"
           className="grid grid-cols-6 md:grid-cols-8 grid-rows-3 container mx-auto h-[calc(100vh-5rem)] justify-center">
           <motion.div
-            className="flex justify-center lg:justify-normal col-span-6 md:col-span-2 md:col-start-1 lg:col-start-2 md:row-span-2 mx-auto text-center w-full lg:w-[390px]"
+            className="flex justify-center md:justify-start col-span-6 md:col-span-2 md:col-start-1 lg:col-start-2 md:row-span-2 mx-auto text-center w-full lg:w-[390px]"
             {...animationProps(-200)}>
             <div className="flex flex-col self-center">
               <TextTyper
@@ -39,8 +39,9 @@ export const Home = () => {
                 wordsToType={['Developer', 'Motivator', 'Teamplayer', 'Discoverer', 'Creator']}
               />
               <motion.a
+                href="mailto:levicrietee@hotmail.com"
                 whileHover="hover"
-                className="flex group mx-auto w-fit mt-5 text-white border border-white px-4 py-2.5 font-bold hover:bg-white hover:text-primary-blue duration-500">
+                className="flex mx-auto w-fit mt-5 text-white border border-white px-4 py-2.5 font-bold hover:bg-white hover:text-primary-blue duration-500 mb-20 md:mb-0 justify-center">
                 Contact me!
                 <motion.p
                   className="ml-2"
